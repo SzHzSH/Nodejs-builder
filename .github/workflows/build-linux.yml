@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Build Linux
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -22,5 +22,7 @@ jobs:
     # Runs a single command using the runners shell
       - name: Build
         run: chmod +x script.sh && ./script.sh
-
-
+      - name: upload-app
+        uses: actions/upload-artifact@v3
+        with:
+          path: nd21.tar.xz
